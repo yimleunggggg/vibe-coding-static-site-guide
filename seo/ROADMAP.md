@@ -205,7 +205,7 @@ flowchart LR
 ## 9. 文档索引
 
 - **教程（公开）**：[tutorial/README.md](tutorial/README.md)
-- **私人清单**：[PRIVATE_SETUP.md](PRIVATE_SETUP.md)
+- **配置清单**：[SETUP_CHECKLIST.md](SETUP_CHECKLIST.md)（复制到本地）
 - 授权：[tutorial/02-Google授权.md](tutorial/02-Google授权.md)
 - 总流程：[RUNBOOK.md](RUNBOOK.md)
 - 通知：[NOTIFICATIONS.md](NOTIFICATIONS.md)

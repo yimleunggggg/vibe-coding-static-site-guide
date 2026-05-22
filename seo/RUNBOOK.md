@@ -247,37 +247,19 @@ Agent 将（见 `.cursor/skills/seo-round/SKILL.md`）：
 
 ---
 
-## 8. 案例进度：Yakushima Bus
+## 8. 案例进度（示例清单）
 
-> 对外教程的**真实进度样例**；你复用时复制此表改自己的站名。
+> 教程案例 yakushimabus.com 的**里程碑类型**；复用时复制改自己的站名，**具体数字与 ID 请只记在自己电脑**。
 
-| 项 | 状态 | 备注 |
-|----|------|------|
-| GSC 验证 + Sitemap | ✅ | `yakushimabus.com` |
-| GA4 埋点 | ✅ | `G-BX2P31GEHW` |
-| Workflow push | ✅ | `abc2720` |
-| Cloud + 服务账号 | ✅ | `你的-cloud-项目名` |
-| GitHub Secrets 三项 | ✅ | |
-| 首次 Run workflow | ✅ | 自检通过；初跑 GSC/GA4 403 |
-| Analytics Data API | ✅ | 启用后 GA4 错误变为 403 property |
-| GA4 grant 脚本 | ✅ | REST 版，`2026-05-21` |
-| GA4 Actions `✓ GA4 28d` | ✅ | Run `2026-05-22`：28 天用户 **48**，自然搜索 **0**（新站正常） |
-| GSC Associations | ⏳ | 界面无 Cloud 项；改 **OAuth**（见下） |
-| GSC OAuth | ⏳ | 跑 `seo_setup_gsc_oauth.py` + 2 个 Secret |
-| 报告 + Issue | ✅ | `docs/seo/reports/2026-05-22-reminder.md`，Issue #1 |
-| **日报 workflow** | ✅ | `seo-daily.yml` + `seo_report_daily.sh` + `seo_fetch_daily.py` |
-| **周报 workflow** | ✅ | `seo-weekly.yml` + `proposals/` + Issue `seo-round YYYY-WW` |
-| **飞书归档** | ⏳ | 脚本就绪；待配 `FEISHU_*` Secrets（见 FEISHU_SETUP.md） |
-| 邮件/ntfy | — | 未配置；看 Issue 或仓库报告 |
-
-**实操日志**
-
-| 日期 | 事件 |
-|------|------|
-| 2026-05-21 | SEO Round 1：四页 meta/JSON-LD、`page-lead` |
-| 2026-05-21 | 首次 workflow：报告 commit、Issue 创建 |
-| 2026-05-21 | GA4 OAuth grant 成功（国内需 REST，勿用旧 gRPC 脚本） |
-| 2026-05-22 | Run workflow：GA4 ✅ 48 用户；GSC 403；Issue #1、报告 `2026-05-22-reminder.md` |
+| 项 | 说明 |
+|----|------|
+| GSC 验证 + Sitemap | 一次性 |
+| GA4 埋点 + 属性 ID | 衡量 ID `G-xxx` ≠ API 属性 ID |
+| Cloud + 服务账号 + OAuth | GSC 常用 OAuth，非 SA 加用户 |
+| GitHub Secrets | 见 tutorial/02 |
+| 日报 / 周报 workflow | `seo-daily.yml`、`seo-weekly.yml` |
+| 通知 | ntfy + Resend（可选） |
+| 飞书 | 可选 |
 
 ---
 

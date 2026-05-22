@@ -24,15 +24,13 @@
 ## 和仓库里其他文档的关系
 
 ```text
-playbook/          ← 你在这里：故事 + 架构 + 复用（偏「人读」）
-case-study/product-intro.md   ← 对外产品介绍（偏「用户读」）
-deploy/github-pages-custom-domain.md        ← 部署操作步骤（偏「照做」）
-seo/tutorial/      ← SEO 自动化教程（脱敏、可分享）
-docs/notes/             ← 开发日记（按日碎片记录）
+playbook/          ← 故事 + 架构 + 复用
+case-study/        ← 案例产品介绍
+deploy/            ← 部署步骤
+seo/tutorial/      ← SEO 自动化跟做
 ```
 
-**发社媒推荐链**：`playbook/README.md` + `seo/tutorial/README.md`  
-**勿公开**：`PRIVATE_JOURNAL.md`、`seo/tutorial/02-Google授权.md`（含真实 ID/邮箱）
+**本库全部公开**；真实 Secret、花费明细、开发日记请只存自己电脑。
 
 ---
 

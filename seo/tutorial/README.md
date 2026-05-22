@@ -1,6 +1,8 @@
-# SEO 自动化教程（公开脱敏版）
+# SEO 自动化教程
 
-面向静态站 + GitHub Actions，以屋久岛公交工具站为案例。**不含**真实邮箱、Token、Property ID。
+面向静态站 + GitHub Actions，以屋久岛公交为**案例**。**不含**真实邮箱、Token、Property ID。
+
+> 配置清单：复制 [SETUP_CHECKLIST.md](../SETUP_CHECKLIST.md) 到**自己电脑**填写，勿 push 真实密钥。
 
 ## 读哪一份
 
@@ -12,11 +14,7 @@
 | [04-通知.md](04-通知.md) | Resend、DNSPod、ntfy |
 | [05-报告与审批.md](05-报告与审批.md) | 怎么看日报、Issue approve |
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | 排错表 |
-| [../PRIVATE_SETUP.md](../PRIVATE_SETUP.md) | **私人版**：你的真实值填表（勿提交含密钥的文件） |
 
-## 与旧文档关系
+## 相关
 
-- 逐步操作仍以 [02-Google授权.md](tutorial/02-Google授权.md) 最细
-- 总流程 [RUNBOOK.md](../RUNBOOK.md)
-- 产品需求 [ROADMAP.md](../ROADMAP.md)
-- 总索引 [../README.md](../README.md)
+- [RUNBOOK.md](../RUNBOOK.md) · [ROADMAP.md](../ROADMAP.md) · [seo/README.md](../README.md)

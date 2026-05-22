@@ -42,7 +42,7 @@
 | 05 | 怎么看报告、Issue approve |
 | 排错 | [TROUBLESHOOTING.md](../seo/tutorial/TROUBLESHOOTING.md) |
 
-私人填表：[PRIVATE_SETUP.md](../seo/PRIVATE_SETUP.md)
+配置清单（本地填写）：[SETUP_CHECKLIST.md](../seo/SETUP_CHECKLIST.md)
 
 ---
 

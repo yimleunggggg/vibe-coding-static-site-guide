@@ -1,28 +1,24 @@
 # 发布到 GitHub（一次性）
 
-本地仓库已就绪：`/Users/yimleung/手搓程序/Yakushima-bus-guides`（已 commit）。
+本地路径：`/Users/yimleung/手搓程序/vibe-coding-static-site-guide`
 
 ## 步骤
 
-1. 打开 https://github.com/new  
-2. Repository name：`Yakushima-bus-guides`  
-3. Public，**不要**勾选 Add README  
-4. Create repository  
-5. 终端执行：
+1. https://github.com/new  
+2. Repository name：**`vibe-coding-static-site-guide`**  
+3. Description（可选）：`Vibe Coding 静态工具站从0到1使用教程 · 案例 yakushimabus.com`  
+4. Public，**不要** Add README  
+5. Create repository  
+6. 终端：
 
 ```bash
-cd "/Users/yimleung/手搓程序/Yakushima-bus-guides"
-git remote set-url origin https://github.com/yimleunggggg/Yakushima-bus-guides.git
+cd "/Users/yimleung/手搓程序/vibe-coding-static-site-guide"
+git remote set-url origin https://github.com/yimleunggggg/vibe-coding-static-site-guide.git
 git push -u origin main
 ```
 
 ## 分享链接
 
-- 首页：https://github.com/yimleunggggg/Yakushima-bus-guides  
-- Playbook：https://github.com/yimleunggggg/Yakushima-bus-guides/tree/main/playbook  
-- SEO 教程：https://github.com/yimleunggggg/Yakushima-bus-guides/tree/main/seo/tutorial  
-
-## 与主项目同步
-
-主代码仓库：[Yakushima-bus](https://github.com/yimleunggggg/Yakushima-bus)  
-更新教程后，从 `docs/playbook/`、`docs/seo/tutorial/` 等复制到本库并 push。
+- 首页：https://github.com/yimleunggggg/vibe-coding-static-site-guide  
+- Playbook：https://github.com/yimleunggggg/vibe-coding-static-site-guide/tree/main/playbook  
+- SEO 教程：https://github.com/yimleunggggg/vibe-coding-static-site-guide/tree/main/seo/tutorial  

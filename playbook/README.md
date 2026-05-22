@@ -1,6 +1,7 @@
 # Vibe Coding 项目 Playbook
 
-> **Yakushima Bus** 从零到上线的完整过程、架构、踩坑与复用清单。  
+> **案例**：屋久岛公交 [yakushimabus.com](https://yakushimabus.com)  
+> 从零到上线的完整过程、架构、踩坑与复用清单。  
 > 写给：像作者一样**不会写代码、但会用 AI 对话做产品**的人。
 
 ---

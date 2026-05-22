@@ -1,38 +1,36 @@
-# 部署：yakushimabus.com（GitHub Pages）
+# 部署：GitHub Pages + 自定义域名
 
-纯静态站，无构建步骤；推送 `main` 分支根目录即可。
+> **本教程案例**：yakushimabus.com（屋久岛公交查询）。下面用 `你的域名.com`、`你的GitHub用户名` 作占位，照换即可。  
+> 纯静态站，无构建步骤；推送 `main` 分支根目录即可。
 
-## 阶段 A：实名审核期间（现在就能做）
+---
 
-域名在腾讯云实名审核时，**先用 GitHub 默认地址上线**，不耽误开发。
+## 阶段 A：域名审核期间（可先上线）
 
-1. **推送最新代码**
+域名在注册商实名审核时，**先用 GitHub 默认地址**，不耽误开发。
+
+1. **推送代码**
    ```bash
-   cd "/Users/yimleung/手搓程序/Yakushima-bus"
-   git add -A && git commit -m "design v3 + deploy notes"   # 有改动时
+   cd ~/你的项目目录
    git push origin main
    ```
 
 2. **开启 Pages**  
-   仓库 `yimleunggggg/Yakushima-bus` → **Settings → Pages**  
+   仓库 `你的GitHub用户名/你的仓库名` → **Settings → Pages**  
    - Source：`Deploy from a branch`  
    - Branch：`main` / **/** (root)  
-   - Custom domain：**先可留空**（填了 `yakushimabus.com` 会报 DNS 错，正常，等阶段 B）
+   - Custom domain：**先留空**（填了自定义域名但 DNS 未就绪会报错，正常）
 
-3. **预览地址**（约 1～2 分钟生效）  
-   **https://yimleunggggg.github.io/Yakushima-bus/**
-
-4. Custom domain 报 `InvalidDNSError` → **忽略**，等域名实名通过后再配 DNS。
+3. **预览地址**（约 1～2 分钟）  
+   `https://你的GitHub用户名.github.io/你的仓库名/`
 
 ---
 
-## 阶段 B：腾讯云实名通过 + 域名生效后
+## 阶段 B：域名生效后
 
-### 1. 完成购买
+### 1. DNS 解析（以腾讯云 DNSPod 为例）
 
-腾讯云 → 域名注册 → 确认 `yakushimabus.com` 状态为 **已注册**。
-
-### 2. DNSPod 解析（腾讯云控制台 → 域名 → 解析）
+根域名添加 **4 条 A 记录**（GitHub Pages **公共 IP**，所有人相同）：
 
 | 记录类型 | 主机记录 | 记录值 | TTL |
 |----------|----------|--------|-----|
@@ -43,107 +41,59 @@
 
 可选 www：
 
-| CNAME | www | yimleunggggg.github.io | 600 |
+| CNAME | www | 你的GitHub用户名.github.io | 600 |
 
-### 3. GitHub 绑定域名
+> 案例：`yakushimabus.com` 即按上表配置；**Resend 邮件**另需 `send` / `resend._domainkey` 等记录，与网站 A 记录不冲突。
 
-Settings → Pages → Custom domain 填 **`yakushimabus.com`** → **Save** → 等 10～30 分钟 **Check again** 变绿 → 勾选 **Enforce HTTPS**。
+### 2. GitHub 绑定域名
 
-仓库根目录已有 `CNAME`（内容为 `yakushimabus.com`），与 Pages 设置一致即可。
+Settings → Pages → Custom domain 填 **`你的域名.com`** → Save → 等 DNS 生效 → **Enforce HTTPS**。
+
+仓库根目录 `CNAME` 文件内容一行：`你的域名.com`。
+
+### 3. 验证
+
+```bash
+dig 你的域名.com +short
+curl -I https://你的域名.com
+```
 
 ---
 
-## 1. 首次推送到 GitHub（已完成可跳过）
+## 首次推送（新仓库）
 
 ```bash
-cd "/Users/yimleung/手搓程序/Yakushima-bus"
-
-# 若尚未 init（已 init 可跳过）
+cd ~/你的项目目录
 git init
 git add .
-git commit -m "Initial deploy: Yakushima bus timetable tool"
-
-# 在 GitHub 新建空仓库，例如 Yakushima-bus（不要勾选 README）
+git commit -m "Initial deploy"
 git branch -M main
-git remote add origin https://github.com/你的用户名/Yakushima-bus.git
+git remote add origin https://github.com/你的GitHub用户名/你的仓库名.git
 git push -u origin main
 ```
 
-## 2. 开启 GitHub Pages
+---
 
-仓库 → **Settings** → **Pages**
-
-| 项 | 值 |
-|----|-----|
-| Source | Deploy from a branch |
-| Branch | `main` / **/** (root) |
-| Custom domain | `yakushimabus.com` |
-
-保存后勾选 **Enforce HTTPS**（DNS 生效后才会出现，稍后再开也行）。
-
-仓库根目录已有 `CNAME`（内容为 `yakushimabus.com`），Pages 会自动识别。
-
-## 3. 域名 DNS（在域名注册商处配置）
-
-### 根域名 `yakushimabus.com`（必选）
-
-添加 **4 条 A 记录**，均指向 GitHub Pages：
-
-```
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-```
-
-### 可选：`www.yakushimabus.com`
-
-| 类型 | 主机 | 值 |
-|------|------|-----|
-| CNAME | www | `你的用户名.github.io` |
-
-在 GitHub Pages 自定义域名里也可填 `www.yakushimabus.com`；若只用根域名，可在注册商把 www 301 跳到根域名。
-
-DNS 传播通常 **10 分钟～48 小时**。GitHub 仓库 **Settings → Pages** 会显示 DNS 检查状态。
-
-## 4. 验证
+## 日后更新
 
 ```bash
-dig yakushimabus.com +short
-# 应看到上述四个 IP 之一
-
-curl -I https://yakushimabus.com
-# 200，且证书有效
-```
-
-浏览器访问：
-
-- https://yakushimabus.com/index.html
-- https://yakushimabus.com/map.html
-
-## 5. 日后更新
-
-```bash
-python3 scripts/build_all.py   # 改数据后
-git add -A
-git commit -m "update timetable data"
-git push
+git add -A && git commit -m "update" && git push
 ```
 
 Pages 约 1～2 分钟自动更新。
 
-## 6. 常见问题
+---
+
+## 常见问题
 
 | 问题 | 处理 |
 |------|------|
-| 404 | 确认 Pages 源为 `main` 根目录；`index.html` 在仓库根 |
-| 域名未生效 | 等 DNS；不要用 Cloudflare「仅 DNS」以外的错误代理模式（可先 DNS only） |
+| 404 | Pages 源为 `main` 根目录；确认有 `index.html` |
+| InvalidDNSError | DNS 未生效或 A 记录未配齐；审核期先用 github.io |
 | HTTPS 灰掉 | 等 DNS 全生效后再开 Enforce HTTPS |
-| PDF 本地 assets | `.gitignore` 已忽略 `*.pdf`；线上 PDF 走官方 URL，正常 |
 
-## 7. 备选（不用 GitHub Pages 时）
+---
 
-- **Cloudflare Pages**：连同一 GitHub 仓库，Build command 留空，Output `/`
-- **Vercel**：Import 项目，Framework Preset = Other，Root = `./`
+## 备选托管
 
-自定义域名同样在面板里填 `yakushimabus.com`，DNS 按平台提示即可。
+- **Cloudflare Pages** / **Vercel**：连同一 GitHub 仓库，Build 留空，Output `/`

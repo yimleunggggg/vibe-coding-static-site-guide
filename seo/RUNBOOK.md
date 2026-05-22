@@ -256,7 +256,7 @@ Agent 将（见 `.cursor/skills/seo-round/SKILL.md`）：
 | GSC 验证 + Sitemap | ✅ | `yakushimabus.com` |
 | GA4 埋点 | ✅ | `G-BX2P31GEHW` |
 | Workflow push | ✅ | `abc2720` |
-| Cloud + 服务账号 | ✅ | `yakushimabus-seo` |
+| Cloud + 服务账号 | ✅ | `你的-cloud-项目名` |
 | GitHub Secrets 三项 | ✅ | |
 | 首次 Run workflow | ✅ | 自检通过；初跑 GSC/GA4 403 |
 | Analytics Data API | ✅ | 启用后 GA4 错误变为 403 property |

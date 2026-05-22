@@ -31,7 +31,7 @@ Workflow 步骤 **Send notifications** 未配 Secret 时会输出：
 ### 2.2 订阅主题
 
 1. 打开 app → 右上角 **+**
-2. 主题名自定，如 `yakushimabus-seo`（勿用易猜的敏感词作唯一防护）
+2. 主题名自定，如 `my-site-seo-随机词`（勿用易猜词作唯一防护）
 3. 订阅
 
 ### 2.3 添加 GitHub Secret
@@ -47,10 +47,10 @@ Workflow 步骤 **Send notifications** 未配 Secret 时会输出：
 Actions → Run workflow → 步骤 **Send notifications** 应出现：
 
 ```text
-✓ ntfy → yakushimabus-seo
+✓ ntfy → my-site-seo-随机词
 ```
 
-手机收到推送，标题形如 `[YakuBus SEO] 2026-05-21 展示/流量报告 — Issue #N`。
+手机收到推送，标题形如 `[站点 SEO] 2026-05-21 展示/流量报告 — Issue #N`。
 
 ---
 
@@ -72,7 +72,7 @@ Actions → Run workflow → 步骤 **Send notifications** 应出现：
 |--------|-----|
 | `RESEND_API_KEY` | `re_...` |
 | `SEO_NOTIFY_EMAIL` | 你的收件邮箱 |
-| `RESEND_FROM` | 如 `YakuBus SEO <onboarding@resend.dev>` 或已验证域名发件人 |
+| `RESEND_FROM` | 如 `My Site SEO <onboarding@resend.dev>` 或已验证域名发件人 |
 
 ### 3.4 验证
 

@@ -13,7 +13,7 @@
 
 ## 2. 文件夹 token
 
-1. 飞书 **云文档** 建文件夹，如 `Yakushima SEO 日报`
+1. 飞书 **云文档** 建文件夹，如 `MySite SEO`
 2. 浏览器打开该文件夹，URL 含 `folder/` 后的 token，或右键分享链接中的 `fldcn...`
 3. 把应用 **添加为文件夹协作者**（可编辑）
 
@@ -35,7 +35,7 @@
 {
   "2026-05-22": {
     "url": "https://feishu.cn/docx/xxxx",
-    "title": "Yakushima Bus 日报 2026-05-22"
+    "title": "站点 SEO 日报 2026-05-22"
   }
 }
 ```
@@ -49,3 +49,26 @@ export FEISHU_APP_SECRET=...
 export FEISHU_FOLDER_TOKEN=...
 python3 scripts/seo_feishu_doc.py docs/seo/reports/daily/2026-05-22.md
 ```
+
+---
+
+## 6. SEO 优化追踪（长文档，推荐）
+
+与「每天一篇日报」分开，**一篇飞书文档长期滚动**，对应 Git：`docs/seo/SEO-JOURNAL.md`
+
+| 内容 | 说明 |
+|------|------|
+| GSC 查询词 / 索引 | 怎么读、其他页面怎么请求编入索引 |
+| 优化过程时间线 | Round 1/2 做了什么 |
+| 效果快照表 | 每日 Actions 自动追加一行 |
+
+```bash
+export FEISHU_APP_ID=...
+export FEISHU_APP_SECRET=...
+export FEISHU_FOLDER_TOKEN=...
+python3 scripts/seo_feishu_journal.py init    # 首次
+python3 scripts/seo_feishu_journal.py sync-full  # 大改 JOURNAL 后
+```
+
+可选 Secret：`FEISHU_JOURNAL_DOC_ID`。详见 [tutorial/06-日报与优化追踪.md](tutorial/06-日报与优化追踪.md)。
+

@@ -20,6 +20,17 @@ Workflow 步骤 **Send notifications** 未配 Secret 时会输出：
 ℹ 未配置通知 — 报告在 docs/seo/reports/ 与 GitHub Issue
 ```
 
+### 失败重试与告警（2026-05）
+
+| 阶段 | 行为 |
+|------|------|
+| 第 1 轮 | 定时 17:00 跑完整流程 |
+| 第 2 轮 | 第 1 轮失败 → **等 60 秒**自动再跑一遍 |
+| GA4/GSC / push | 每轮内各 **最多 3 次**短间隔重试 |
+| 两轮均失败 | ntfy **高优先级**：`日报失败 · 请人工处理` + Actions 链接 |
+
+第 2 轮成功时 workflow **绿**。**与你电脑开不开机无关**。详见 [tutorial/06-日报与优化追踪.md](tutorial/06-日报与优化追踪.md)。
+
 ---
 
 ## 2. 手机推送（ntfy.sh）
@@ -110,6 +121,7 @@ Workflow 会：
 | ntfy 无推送 | 查主题名与 Secret；app 是否订阅 |
 | 邮件失败 | Resend Key、发件人域名验证、收件是否在垃圾箱 |
 | 有 Issue 无推送 | 正常；Issue 即默认通知 |
+| ntfy 有、Actions 红 | 邮件或 commit 失败；job 会自动第 2 轮 | 见 tutorial/06 |
 
 ---
 
